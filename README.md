@@ -13,6 +13,7 @@
 
 - **Library/Frameworks**
    - *React*
+   - *Redux*
 
  
 ## Live Demo Link
