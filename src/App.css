@@ -34,3 +34,7 @@ form {
   align-items: center;
   gap: 12px;
 }
+
+.category-section {
+  text-align: center;
+}
