@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../redux/books/book';
+import { addBookData } from '../redux/books/book';
 
 const AddBook = () => {
   const dispatch = useDispatch();
@@ -9,11 +9,12 @@ const AddBook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const book = {
+      item_id: uuidv4(),
       title: e.target.elements.bookTitle.value,
       author: e.target.elements.authorName.value,
-      id: uuidv4(),
+      category: 'none',
     };
-    dispatch(addBook(book));
+    dispatch(addBookData(book));
     e.target.elements.bookTitle.value = '';
     e.target.elements.authorName.value = '';
   };
