@@ -1,20 +1,20 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { removeBook } from '../redux/books/book';
+import { removeBookData } from '../redux/books/book';
 
 const Book = (props) => {
   const { title, author, id } = props;
   const dispatch = useDispatch();
 
   function handleRemove() {
-    dispatch(removeBook(id));
+    dispatch(removeBookData(id));
   }
   return (
     <li className="book">
       <p className="book-title">{title}</p>
       <p className="author-name">
-        by
+        by&nbsp;
         {author}
       </p>
       <button type="button" onClick={handleRemove}>remove</button>
