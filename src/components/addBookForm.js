@@ -20,11 +20,14 @@ const AddBook = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="bookTitle" placeholder="Book title" required />
-      <input type="text" name="authorName" placeholder="Author name" required />
-      <button type="submit"> Add </button>
-    </form>
+    <section className="form-section">
+      <h1>Add Book</h1>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="bookTitle" placeholder="Book title" required />
+        <input type="text" name="authorName" placeholder="Author name" required />
+        <button type="submit"> Add </button>
+      </form>
+    </section>
   );
 };
 
