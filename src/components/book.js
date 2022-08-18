@@ -12,12 +12,24 @@ const Book = (props) => {
   }
   return (
     <li className="book">
-      <p className="book-title">{title}</p>
-      <p className="author-name">
-        by&nbsp;
-        {author}
-      </p>
-      <button type="button" onClick={handleRemove}>remove</button>
+      <div>
+        <p className="book-title">{title}</p>
+        <p className="author-name">
+          {' '}
+          by&nbsp;
+          {author}
+        </p>
+        <button type="button" onClick={handleRemove}>remove</button>
+      </div>
+      <span className="book-progress">
+        <span className="circle" />
+        100%
+      </span>
+      <span className="book-chapter">
+        <p>current chapter</p>
+        <p className="chapter">Chapter 10</p>
+        <button type="button">Update Progress</button>
+      </span>
     </li>
   );
 };
