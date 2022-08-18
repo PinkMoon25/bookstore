@@ -1,48 +1,47 @@
-import { v4 as uuidv4 } from 'uuid';
+const apiUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/nxsm1kVGIfpXEwgiipul/books/';
+const FETCH_BOOKS_DATA = 'FETCH_BOOKS_DATA';
 
-const ADD_BOOK = 'ADD_BOOK';
-const REMOVE_BOOK = 'REMOVE_BOOK';
+async function fetchBooks(dispatch) {
+  try {
+    const response = await fetch(apiUrl).then((res) => res.json());
+    dispatch({ type: FETCH_BOOKS_DATA, payload: response });
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-const books = [
-  {
-    title: 'Animal farms',
-    author: 'George Orwell',
-    id: uuidv4(),
-  },
-  {
-    title: 'Eloquent JavaScript',
-    author: 'Marijn Haverbeke',
-    id: uuidv4(),
-  },
-  {
-    title: 'Harry Potter',
-    author: 'JK Rowling',
-    id: uuidv4(),
-  },
-];
+function addBookData(book) {
+  return async (dispatch) => {
+    await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(book),
+    });
+    dispatch(fetchBooks);
+  };
+}
 
-const addBook = (book) => ({
-  type: ADD_BOOK,
-  book,
-});
+const books = [];
 
-const removeBook = (id) => ({
-  type: REMOVE_BOOK,
-  id,
-});
+function removeBookData(id) {
+  return async (dispatch) => {
+    await fetch(`${apiUrl}${id}`, {
+      method: 'DELETE',
+    });
+    dispatch(fetchBooks);
+  };
+}
 
 const booksReducer = (state = books, action) => {
-  const index = state.findIndex((book) => action.id === book.id);
   switch (action.type) {
-    case ADD_BOOK:
-      return [...state, action.book];
-    case REMOVE_BOOK:
-
-      return [...state.slice(0, index), ...state.slice(index + 1)];
+    case FETCH_BOOKS_DATA:
+      return action.payload;
     default:
       return state;
   }
 };
 
 export default booksReducer;
-export { addBook, removeBook };
+export { addBookData, removeBookData, fetchBooks };

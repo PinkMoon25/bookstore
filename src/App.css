@@ -19,12 +19,15 @@ nav {
 
 ul {
   margin: 0 0 25px 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
+}
+
+li {
+  width: 100%;
 }
 
 form {
