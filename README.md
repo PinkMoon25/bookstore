@@ -18,7 +18,7 @@
  
 ## Live Demo Link
 
-   Check it out live :point_right: [In progress]()
+   Check it out live :point_right: [bookstore](https://pinkmoon25.github.io/bookstore/)
 
 ### Prerequisites
 
