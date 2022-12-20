@@ -18,7 +18,7 @@
  
 ## Live Demo Link
 
-   Check it out live :point_right: [bookstore](https://pinkmoon25.github.io/bookstore)
+   Check it out live :point_right: [bookstore](https://pinkmoon25.github.io/bookstore/)
 
 ### Prerequisites
 
